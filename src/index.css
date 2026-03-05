@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+  /* When the .dark class is on the html tag, change the body color */
+  .dark body {
+    @apply bg-slate-950 text-white;
+  }
+}
