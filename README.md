@@ -68,4 +68,4 @@ src/
 
 ## 📄 License
 
-MIT
+Add your license (MIT/Apache/BSD) if desired.
