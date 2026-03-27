@@ -1,51 +1,71 @@
 # Expense Pro
 
-A lightweight expense tracker web app built with React/TypeScript and Tailwind CSS.
+> A lightweight expense tracker web app with live charts, summary metrics, and a clean Tailwind UI.
 
-## Features
+## 🚀 Quick Start
 
-- Add, edit, delete transactions
-- View transactions list with income/expense classification
-- Display summary cards (balance, income, expenses)
-- Interactive liquidity chart
-- Modal form for transaction entry
+```bash
+npm install
+npm run dev
+```
 
-## Tech stack
+Open the local server URL shown in terminal (default: `http://localhost:5173`).
+
+## ✨ Features
+
+- Add, edit, remove transactions
+- Income vs. expense classification and total balance
+- Summary cards for current balance, income, expenses
+- Interactive liquidity chart powered by `Recharts`
+- Modal transaction form with instant updates
+- Responsive design with Tailwind CSS
+
+## 🧰 Tech stack
 
 - React (Vite)
 - TypeScript
 - Tailwind CSS
+- Recharts
 
-## Getting started
+## 📁 Project structure
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Start dev server:
-   ```bash
-   npm run dev
-   ```
-
-3. Open in browser:
-   - `http://localhost:5173` (or the URL shown in terminal)
-
-## Project structure
-
-- `src/main.tsx`: app entry
-- `src/App.tsx`: root component
-- `src/components`: UI components
-- `src/hooks/useFinance.ts`: finance state logic
-- `src/utils.ts`, `src/constants.ts`, `src/types.ts`: shared utilities/types
-
-## Build
-
-```bash
-npm run build
+```
+src/
+  main.tsx         # entry point
+  App.tsx          # root application
+  constants.ts     # UI/logic constants
+  types.ts         # shared TYPE definitions
+  utils.ts         # helper functions
+  hooks/
+    useFinance.ts  # transaction state management
+  components/
+    Header.tsx
+    LiquidityChart.tsx
+    SummaryCards.tsx
+    TransactionList.tsx
+    TransactionModal.tsx
 ```
 
-## Notes
+## 🧪 Scripts
 
-- Data is stored in local state only (no backend persistence).
-- For production, connect to a database or local storage and add validation.
+- `npm run dev`: start development server
+- `npm run build`: production bundle
+- `npm run preview`: preview production build
+
+## 💡 Notes
+
+- Currently data is in memory only; refresh resets state.
+- Add persistence (localStorage or backend API) for real usage.
+- Improve validation for amounts, dates, and categories.
+
+## 🤝 Contributions
+
+1. Fork it
+2. Create your feature branch (`git checkout -b feature/...`)
+3. Commit your changes (`git commit -m "feat: ..."`)
+4. Push (`git push origin feature/...`)
+5. Open a pull request
+
+## 📄 License
+
+MIT
