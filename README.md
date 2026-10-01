@@ -1,71 +1,50 @@
-# Expense Pro
+# Expense Insight Pro
 
-> A lightweight expense tracker web app with live charts, summary metrics, and a clean Tailwind UI.
+An expense tracker that shows where your balance is heading. It starts with sample data, lets you add, edit and delete transactions in five currencies, and draws the running balance with a straight-line trend and a 30-day forecast. It runs entirely in the browser, with no backend.
 
-## 🚀 Quick Start
+## Features
+
+- Add, edit and delete transactions (income or expense), with undo after a delete
+- Summary cards for the balance and for income and spending over the last 30 days
+- Five display currencies: USD, EUR, GBP, INR and JPY
+- Running-balance line chart (Recharts) with a toggle for the trend line and forecast
+- 30-day forecast card showing the daily trend, R² and how many transactions it used
+- Search by description and filter by category
+- "Reset to sample data" button
+- Light and dark theme, saved in `localStorage` and defaulting to your system setting
+
+## Setup
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:5173
+npm run build    # type-check and production build into dist/
+npm run preview  # serve the production build
 ```
 
-Open the local server URL shown in terminal (default: `http://localhost:5173`).
+Stack: Vite, React 18, TypeScript, Tailwind CSS 3, Recharts, lucide-react.
 
-## ✨ Features
-
-- Add, edit, remove transactions
-- Income vs. expense classification and total balance
-- Summary cards for current balance, income, expenses
-- Interactive liquidity chart powered by `Recharts`
-- Modal transaction form with instant updates
-- Responsive design with Tailwind CSS
-
-## 🧰 Tech stack
-
-- React (Vite)
-- TypeScript
-- Tailwind CSS
-- Recharts
-
-## 📁 Project structure
+## Project structure
 
 ```
 src/
-  main.tsx         # entry point
-  App.tsx          # root application
-  constants.ts     # UI/logic constants
-  types.ts         # shared TYPE definitions
-  utils.ts         # helper functions
-  hooks/
-    useFinance.ts  # transaction state management
-  components/
-    Header.tsx
-    LiquidityChart.tsx
-    SummaryCards.tsx
-    TransactionList.tsx
-    TransactionModal.tsx
+  main.tsx              entry point, loads the fonts and global CSS
+  App.tsx               shell: light/dark toggle plus the demo
+  index.css             Tailwind layers, body colours, .accent, .custom-scrollbar
+  demo/
+    expense-pro/        the demo, copied unchanged from the portfolio
+      ExpenseProDemo.tsx
+      constants.ts      currencies, categories, sample data
+      types.ts
+      utils.ts          balance, history and forecast maths
+  lib/
+    useDialog.ts        dialog behaviour (Esc, focus trap, scroll lock) used by the demo
 ```
 
-## 🧪 Scripts
+`src/demo/` is a plain copy of the demo folder from the portfolio. To update it, copy the folder over. The only edit after copying is the `useDialog` import in `ExpenseProDemo.tsx`, which points at `../../lib/useDialog`.
 
-- `npm run dev`: start development server
-- `npm run build`: production bundle
-- `npm run preview`: preview production build
+## Limits
 
-## 💡 Notes
-
-- Currently data is in memory only; refresh resets state.
-- Add persistence (localStorage or backend API) for real usage.
-- Improve validation for amounts, dates, and categories.
-
-## 🤝 Contributions
-
-1. Fork it
-2. Create your feature branch (`git checkout -b feature/...`)
-3. Commit your changes (`git commit -m "feat: ..."`)
-4. Push (`git push origin feature/...`)
-5. Open a pull request
-
-## 📄 License
-
-Add your license (MIT/Apache/BSD) if desired.
+- Exchange rates are fixed numbers in the code, not live rates.
+- Data is stored in the browser only (`localStorage`). It is not synced and is lost if you clear site data.
+- The forecast is a straight-line least-squares trend, not financial advice.
