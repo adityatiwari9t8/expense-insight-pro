@@ -1,5 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+// Self-hosted fonts
+import '@fontsource-variable/inter/wght.css'
+import '@fontsource/instrument-serif/latin-400-italic.css'
 import App from './App'
 import './index.css'
 

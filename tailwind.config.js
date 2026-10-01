@@ -1,16 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class', // MUST be exactly this
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      borderRadius: {
-        '4xl': '2rem', 
+      fontFamily: {
+        sans: ['"Inter Variable"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'ui-serif', 'Georgia', 'serif']
       }
-    },
+    }
   },
-  plugins: [],
-}
+  plugins: []
+};
